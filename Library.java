@@ -36,11 +36,11 @@ public class Library extends Building {
     try {
       // If the book is already in the collection, start search for lowest unique copy
       // number
-      if (this.collection.containsKey(title)) {
+      if (this.containsTitle(title)) {
         for (int i = 1; i < 200; i++) {
           // If the current iteration of for loop is not a current copy, re-assign title
           // to include copy info
-          if (!this.collection.containsKey(title + ", copy " + i)) {
+          if (!this.containsTitle(title + ", copy " + i)) {
             title = title + ", copy " + i;
             break;
           }
@@ -68,7 +68,7 @@ public class Library extends Building {
    */
   public String removeTitle(String title) {
     try {
-      if (this.collection.containsKey(title)) {
+      if (this.containsTitle(title)) {
         this.collection.remove(title, true);
         return (title);
       } else {
@@ -87,7 +87,7 @@ public class Library extends Building {
    */
   public void checkOut(String title) {
     try {
-      if (this.collection.containsKey(title)) {
+      if (this.containsTitle(title)) {
         this.collection.replace(title, false);
       } else {
         throw new InvalidNameException("The title \"" + title + "\" is not in the library, and cannot be checked out.");
@@ -104,7 +104,7 @@ public class Library extends Building {
    */
   public void returnBook(String title) {
     try {
-      if (this.collection.containsKey(title)) {
+      if (this.containsTitle(title)) {
         this.collection.replace(title, true);
       } else {
         throw new InvalidNameException("The title \"" + title + "\" is not in the library, and cannot be returned.");
@@ -152,13 +152,14 @@ public class Library extends Building {
    * status)
    */
   public void printCollection() {
-    // source for Treemap inspiration: https://www.javacodeexamples.com/sort-hashtable-by-keys-in-java-example/3165
+    // source for Treemap inspiration:
+    // https://www.javacodeexamples.com/sort-hashtable-by-keys-in-java-example/3165
     Map<String, Boolean> sortedCollection = new TreeMap<String, Boolean>(this.collection);
     System.out.println("\n------Welcome to " + this.name + " Library. Here is our selection:------");
     sortedCollection.forEach(
-        (title, checkout_status) -> {
-          String checkout_str = checkout_status ? "available" : "checked out";
-          System.out.println("\tThe book " + title + " is " + checkout_str);
+        (title, checkoutStatus) -> {
+          String checkoutStr = checkoutStatus ? "available" : "checked out";
+          System.out.println("\tThe book " + title + " is " + checkoutStr);
         });
   }
 
