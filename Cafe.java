@@ -1,14 +1,14 @@
 /* This is a stub for the Cafe class */
 public class Cafe extends Building {
 
-    private int nCoffeeOunces; // The number of ounces of coffee remaining in inventory
-    private int maxCoffeeOunces; // The number of ounces of coffee remaining in inventory
-    private int nSugarPackets; // The number of sugar packets remaining in inventory
-    private int maxSugarPackets; // The number of sugar packets remaining in inventory
-    private int nCreams; // The number of "splashes" of cream remaining in inventory
-    private int maxCreams; // The number of "splashes" of cream remaining in inventory
-    private int nCups; // The number of cups remaining in inventory
-    private int maxCups; // The number of cups remaining in inventory
+    private int nCoffeeOunces;
+    private int maxCoffeeOunces; 
+    private int nSugarPackets;
+    private int maxSugarPackets; 
+    private int nCreams; 
+    private int maxCreams; 
+    private int nCups; 
+    private int maxCups; 
 
     /**
      * Constructor for a Café
@@ -19,10 +19,10 @@ public class Cafe extends Building {
      *                      Building()
      * @param nFloors       The number of floors in the café - passed to the super
      *                      class Building()
-     * @param nCoffeeOunces The name of coffee ounces the café has in inventory
-     * @param nSugarPackets The name of sugar packets the café has in inventory
-     * @param nCreams       The name of creams the café has in inventory
-     * @param nCups         The name of cups the café has in inventory
+     * @param nCoffeeOunces The max/starting number of coffee ounces the café has in inventory
+     * @param nSugarPackets The max/starting number of sugar packets the café has in inventory
+     * @param nCreams       The max/starting number of creams the café has in inventory
+     * @param nCups         The max/starting number of cups the café has in inventory
      */
     public Cafe(String name, String address, int nFloors, int nCoffeeOunces, int nSugarPackets, int nCreams,
             int nCups) {
